@@ -1,6 +1,8 @@
 // Event listener to save the GitHub PAT
 document.getElementById('save-pat').addEventListener('click', function() {
     const pat = document.getElementById('github-pat').value;
+    console.log("🚀 ~ document.getElementById ~ pat:", pat)
+    
   
     if (pat) {
       // Store the GitHub PAT in chrome storage
