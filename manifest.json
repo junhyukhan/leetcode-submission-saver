@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "LeetCode Submission Saver",
+    "version": "1.0",
+    "description": "Automatically commit successful LeetCode submissions to GitHub using Personal Access Tokens.",
+    "permissions": ["webRequest", "storage"],
+    "host_permissions": [
+      "https://leetcode.com/*",
+      "https://api.github.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
