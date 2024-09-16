@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
       patInput.disabled = true;
       savePatButton.disabled = true;
       tokenStatus.textContent = `GitHub Token is already set (****${githubToken.slice(-4)})`;
+
+      // Fetch repositories since the PAT is already set
+      fetchRepositories(githubToken);
     } else {
-      // Otherwise, allow user to enter a token
       tokenStatus.textContent = 'GitHub Token is not set.';
     }
 
@@ -30,9 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
       saveRepoButton.disabled = true;
       repoStatus.textContent = `Selected Repository: ${selectedRepo}`;
     } else {
-      // Otherwise, allow user to select a repository
+      // Allow the user to select a repository
       repoStatus.textContent = 'No repository selected.';
-      fetchRepositories(); // Fetch repositories if repo not selected yet
     }
   });
   
@@ -47,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
         patInput.disabled = true;
         savePatButton.disabled = true;
         tokenStatus.textContent = `GitHub Token is already set (****${pat.slice(-4)})`;
+
+        // Fetch repositories immediately after saving the PAT
+        fetchRepositories(pat);
       });
     } else {
       alert('Please enter a valid GitHub PAT.');
@@ -87,39 +91,39 @@ document.addEventListener('DOMContentLoaded', function() {
       saveRepoButton.disabled = false;
       repoStatus.textContent = 'No repository selected.';
       
+      // Clear repository options
+      repoSelect.innerHTML = '<option value="">Loading repositories...</option>';
     });
   });
 
   // Function to fetch repositories using the GitHub API
-  function fetchRepositories() {
-    chrome.storage.local.get('githubToken', function(items) {
-      const pat = items.githubToken;
-      if (!pat) {
-        alert('GitHub token not set. Cannot fetch repositories.');
-        return;
-      }
+  function fetchRepositories(pat) {
+    const url = 'https://api.github.com/user/repos';
 
-      const url = 'https://api.github.com/user/repos';
-      
-      fetch(url, {
-        headers: {
-          'Authorization': `token ${pat}`
-        }
-      })
-      .then(response => response.json())
-      .then(repos => {
-        repoSelect.innerHTML = ''; // Clear existing options
+    fetch(url, {
+      headers: {
+        'Authorization': `token ${pat}`
+      }
+    })
+    .then(response => response.json())
+    .then(repos => {
+      repoSelect.innerHTML = ''; // Clear existing options
+
+      // Populate the dropdown with repositories
+      if (repos.length > 0) {
         repos.forEach(repo => {
           const option = document.createElement('option');
           option.value = repo.full_name;
           option.textContent = repo.full_name;
           repoSelect.appendChild(option);
         });
-      })
-      .catch(error => {
-        console.error('Failed to fetch repositories:', error);
-        repoSelect.innerHTML = '<option>Error fetching repositories</option>';
-      });
+      } else {
+        repoSelect.innerHTML = '<option value="">No repositories found</option>';
+      }
+    })
+    .catch(error => {
+      console.error('Failed to fetch repositories:', error);
+      repoSelect.innerHTML = '<option value="">Error fetching repositories</option>';
     });
   }
 });
