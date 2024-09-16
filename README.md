@@ -2,6 +2,15 @@
 
 **LeetCode Submission Saver** is a Chrome extension that automatically saves your successful LeetCode submissions to a GitHub repository. This extension helps you organize and track your coding progress by committing your LeetCode solutions directly to GitHub.
 
+<div align="center">
+   <img src="https://github.com/user-attachments/assets/ebb6e878-1ee5-4594-9b10-f674c040b957" alt="Alt text" width="600" />
+</div>
+
+
+<div align="center">
+   <img src="https://github.com/user-attachments/assets/678170e5-0480-4bb9-91f1-8c873000c339" alt="Alt text" width="300" />  
+</div>
+
 ## Features
 
 - Automatically captures successful LeetCode submissions.
