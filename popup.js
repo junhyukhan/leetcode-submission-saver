@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pat) {
       // Store the GitHub PAT in chrome storage
       chrome.storage.local.set({ githubToken: pat }, function() {
-        alert('GitHub Personal Access Token saved successfully!');
+        // alert('GitHub Personal Access Token saved successfully!');
         patInput.disabled = true;
         savePatButton.disabled = true;
         tokenStatus.textContent = `GitHub Token is already set (****${pat.slice(-4)})`;
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchRepositories(pat);
       });
     } else {
-      alert('Please enter a valid GitHub PAT.');
+      // alert('Please enter a valid GitHub PAT.');
     }
   });
 
@@ -64,13 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (selectedRepo) {
       // Store the selected repository in chrome storage
       chrome.storage.local.set({ selectedRepo }, function() {
-        alert(`Repository "${selectedRepo}" saved successfully!`);
+        // alert(`Repository "${selectedRepo}" saved successfully!`);
         repoSelect.disabled = true;
         saveRepoButton.disabled = true;
         repoStatus.textContent = `Selected Repository: ${selectedRepo}`;
       });
     } else {
-      alert('Please select a repository.');
+      // alert('Please select a repository.');
     }
   });
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
   resetButton.addEventListener('click', function() {
     // Clear all values from chrome.storage.local
     chrome.storage.local.clear(function() {
-      alert('All settings have been reset!');
+      // alert('All settings have been reset!');
 
       // Reset the UI for GitHub token
       patInput.value = '';
