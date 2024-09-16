@@ -4,30 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LeetCode Submission Saver</title>
+
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="popup.css">
+
 </head>
 <body>
-  <h2>GitHub Personal Access Token</h2>
+  <div class="container">
+    <div class="section">
+      <h2>LeetCode Submission Saver</h2>
 
-  <div id="token-container">
-    <input type="password" id="github-pat" placeholder="Enter GitHub PAT" />
-    <button id="save-pat">Save Token</button>
+      <!-- GitHub Token Section -->
+      <div id="token-container" class="mb-6">
+        <label for="github-pat">GitHub Personal Access Token</label>
+        <div class="flex-between"> <!-- Apply flexbox container with justify-between -->
+          <input type="password" id="github-pat" placeholder="Enter GitHub PAT" />
+          <button id="save-pat">Save</button>
+        </div>
+        <p id="token-status" class="status-text"></p>
+      </div>
+
+      <!-- Repository Selection Section -->
+      <div id="repo-container" class="mb-6">
+        <label for="repo-select">Select Repository</label>
+        <div class="flex-between"> <!-- Apply flexbox container with justify-between -->
+          <select id="repo-select">
+            <option value="">Loading repositories...</option>
+          </select>
+          <button id="save-repo">Save</button>
+        </div>
+        <p id="repo-status" class="status-text"></p>
+      </div>
+
+      <!-- Reset Button -->
+      <button id="reset-btn" class="reset-btn">Reset All</button>
+    </div>
   </div>
-
-  <p id="token-status"></p>
-
-  <h3>Select Repository</h3>
-  
-  <div id="repo-container">
-    <select id="repo-select">
-      <option value="">Loading repositories...</option>
-    </select>
-    <button id="save-repo">Save Repository</button>
-  </div>
-
-  <p id="repo-status"></p>
-
-  <!-- Reset button -->
-  <button id="reset-btn">Reset All</button>
 
   <script src="popup.js"></script>
 </body>

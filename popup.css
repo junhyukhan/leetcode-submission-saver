@@ -1,0 +1,90 @@
+/* General styles */
+  body {
+    background-color: #f7fafc; /* bg-gray-100 */
+    color: #2d3748; /* text-gray-800 */
+    padding: 5px; /* p-4 */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Set fixed width and auto height for the popup */
+  .container {
+    width: 400px; /* Set fixed width */
+    margin: 0 auto; /* Center horizontally */
+    background-color: #ffffff; /* bg-white */
+    border-radius: 12px; /* rounded-xl */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    overflow: hidden; /* Prevent overflow */
+  }
+
+  /* Flex container to justify content between */
+  .flex-between {
+    display: flex;
+    justify-content: space-between; /* Align items to the left and right */
+    align-items: center; /* Center vertically, if necessary */
+    gap: 8px; /* Optional: Add some space between the input and button */
+    width: 100%; /* Ensure the container takes up full width */
+  }
+  
+  /* Adjust input to take up more space when next to a button */
+  .flex-between input, .flex-between select {
+    flex: 1; /* Allow input/select to grow and fill the available space */
+  }
+  
+  /* Section padding */
+  .section {
+    padding: 16px; /* p-4 */
+  }
+  
+  /* Headings */
+  h2 {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #4a5568; /* text-gray-700 */
+    margin-bottom: 16px; /* mb-4 */
+  }
+  
+  /* Input fields */
+  input, select {
+    width: 150px; /* w-full */
+    padding: 8px 12px; /* px-3 py-2 */
+    border: 1px solid #cbd5e0; /* border-gray-300 */
+    border-radius: 8px; /* rounded-lg */
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s; /* transition */
+  }
+  
+  input:focus, select:focus {
+    border-color: #5a67d8; /* focus:border-indigo-500 */
+    box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.3); /* focus:ring-2 */
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #5a67d8; /* bg-indigo-500 */
+    color: #fff; /* text-white */
+    padding: 8px 16px; /* py-2 px-4 */
+    border-radius: 8px; /* rounded-lg */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s; /* transition */
+    margin-top: 8px; /* mt-2 */
+  }
+  
+  button:hover {
+    background-color: #4c51bf; /* hover:bg-indigo-600 */
+  }
+  
+  button.reset-btn {
+    background-color: #e53e3e; /* bg-red-500 */
+  }
+  
+  button.reset-btn:hover {
+    background-color: #c53030; /* hover:bg-red-600 */
+  }
+  
+  /* Status text */
+  .status-text {
+    font-size: 0.875rem; /* text-sm */
+    color: #718096; /* text-gray-500 */
+    margin-top: 8px; /* mt-2 */
+  }
