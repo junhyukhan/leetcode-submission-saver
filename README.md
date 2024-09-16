@@ -16,6 +16,7 @@
 
 1. **Google Chrome**: Ensure you have Google Chrome installed on your machine.
 2. **GitHub Account**: You need a GitHub account and a [Personal Access Token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (PAT) with `repo` permissions to commit code to your GitHub repositories.
+3. **Node.js & npm**: You need Node.js and npm installed to build Tailwind CSS.
 
 ### Steps
 
@@ -25,13 +26,31 @@
    git clone https://github.com/your-repo/leetcode-submission-saver.git
    ```
 
-2. **Open Chrome** and go to `chrome://extensions/`.
+2. **Install dependencies**:
 
-3. **Enable Developer Mode** (toggle on the top-right corner).
+   Navigate to the project directory and install the necessary dependencies:
 
-4. Click **Load unpacked** and select the folder where you cloned or downloaded the extension.
+   ```bash
+   npm install
+   ```
 
-5. The extension will now appear in your Chrome extensions bar.
+3. **Build Tailwind CSS**:
+
+   Run the following command to build Tailwind CSS locally:
+
+   ```bash
+   npx tailwindcss -i ./input.css -o ./output.css --watch
+   ```
+
+   This command will compile the `input.css` file into `output.css` using Tailwind CSS, and it will watch for any changes so the styles are updated as you modify the CSS.
+
+4. **Open Chrome** and go to `chrome://extensions/`.
+
+5. **Enable Developer Mode** (toggle on the top-right corner).
+
+6. Click **Load unpacked** and select the folder where you cloned or downloaded the extension.
+
+7. The extension will now appear in your Chrome extensions bar.
 
 ## Usage
 
@@ -65,19 +84,3 @@
 - **Use Short-Lived PATs**: For enhanced security, consider using short-lived tokens if GitHub enables this functionality.
 - **Limit PAT Permissions**: Only grant the `repo` scope and avoid granting excessive permissions when generating your PAT.
 - **Revocation**: If the PAT is ever compromised or you no longer need the extension, revoke it immediately via your GitHub account's token management settings.
-
-## Screenshots
-
-![LeetCode Submission Saver Screenshot](screenshot.png)
-
-## Contributing
-
-If you'd like to contribute, feel free to fork the repository and submit a pull request. Bug reports and feature requests are also welcome in the issues section.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any questions or issues, feel free to reach out via [your-email@example.com](mailto:your-email@example.com).
