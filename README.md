@@ -19,6 +19,14 @@
 - Simple interface for adding your GitHub Personal Access Token (PAT) and selecting a repository.
 - Reset functionality to easily reconfigure the extension.
 
+## Todo
+- [ ] Add a way to add some notes related to the solution
+  - leetcode already has a section that allows the user to write some notes, so perhaps this could be used
+  - perhaps a logic to capture the content section, or a listener of the call since the text will be in the request body
+- [ ] make the hanling of github PATs more secure
+  - encrypt the PAT and let the user enter a pin to access the PAT
+  - instead of saving the PAT, just request the token when a commit is made (like an alert)
+
 ## Installation
 
 ### Prerequisites
