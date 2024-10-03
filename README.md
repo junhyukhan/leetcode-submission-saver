@@ -23,9 +23,16 @@
 - [ ] Add a way to add some notes related to the solution
   - leetcode already has a section that allows the user to write some notes, so perhaps this could be used
   - perhaps a logic to capture the content section, or a listener of the call since the text will be in the request body
-- [ ] make the hanling of github PATs more secure
+- [ ] make the handling of github PATs more secure
   - encrypt the PAT and let the user enter a pin to access the PAT
   - instead of saving the PAT, just request the token when a commit is made (like an alert)
+- [ ] have a way of showing that a commit was made successfully to the chosen repository
+  - success or failure if the PAT/repo was not valid
+  - currently there is no way of knowing without checking the repo directly
+- [ ] have a way of checking whether the chosen repository is valid
+  - if you choose a repo in the extension then delete it, the repository will still be selected even though it doesn't exist
+  - not the biggest problem since this repo is the user's repository and so they should know if they had deleted the repo or not, but still would be nice to have a manual check button to make sure
+  - this would also check if the PAT is valid and since PATs can have expiry dates, the check button would be helpful
 
 ## Installation
 
